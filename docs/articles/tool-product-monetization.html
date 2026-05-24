@@ -42,58 +42,55 @@
       </aside>
 
       <main class="article-main">
+        <div class="article-layout">
         <article class="article">
           <header class="article-hero strategy-hero">
             <p class="eyebrow">Business Model</p>
             <h1>工具类产品商业化分析</h1>
             <p class="article-lead">
-              低频工具产品的核心矛盾，不是用户完全不愿意付费，而是产品价值按事件发生、
+              低频工具产品的核心矛盾，不是用户不愿意付费，而是产品的价值按事件发生，
               成本按调用发生，收入却经常被设计成按时间发生。
             </p>
             <div class="hero-metrics" aria-label="核心框架">
-              <span>Frequency</span>
               <span>Value</span>
+              <span>Usage</span>
               <span>Cost</span>
               <span>Revenue</span>
             </div>
           </header>
 
-          <nav class="article-toc" aria-label="本文目录">
-            <a href="#problem">问题定义</a>
-            <a href="#terms">概念拆分</a>
-            <a href="#framework">FVC 框架</a>
-            <a href="#paths">商业化路径</a>
-            <a href="#decision">推荐判断</a>
-          </nav>
-
           <section id="problem" class="section-block">
-            <p class="eyebrow">Problem</p>
-            <h2>低频高成本工具难在哪里</h2>
+            <div class="section-kicker">Problem</div>
+            <h2>低频高成本工具的问题到底在哪里</h2>
             <p>
-              语音输入、云存储、办公协作这类高频产品，每天持续产生价值，也持续消耗资源，
-              所以订阅制比较自然。旅行规划、报税、电子签、搬家或装修工具不同：用户只在一个事件窗口里高强度使用，
-              事件结束后需求很快下降。
+              高频工具，例如语音输入、云存储、办公协作，用户每天都用，产品也持续产生成本。
+              这类产品用订阅制比较自然，因为价值、使用、成本和收入都接近连续发生。
             </p>
-            <div class="compare-grid">
+            <p>
+              旅行规划工具、报税工具、电子签、搬家或装修工具则不同。用户只在某个事件窗口内
+              高强度使用，事件结束后需求迅速下降。但地图 API、模型 API、服务器、存储、客服和审核
+              仍会跟随使用量产生成本。
+            </p>
+            <div class="insight-row">
               <div>
-                <h3>用户侧</h3>
-                <p>只想为这次任务付费，不想为不用的月份续费。</p>
+                <strong>用户侧</strong>
+                <p>“我只为这次旅行付费，不想为不用的月份续费。”</p>
               </div>
               <div>
-                <h3>公司侧</h3>
-                <p>每次搜索、路线规划、AI 生成、地图加载都可能带来变量成本。</p>
+                <strong>公司侧</strong>
+                <p>“每次搜索、路线规划、AI 生成和地图加载都可能带来变量成本。”</p>
               </div>
             </div>
           </section>
 
           <section id="terms" class="section-block">
-            <p class="eyebrow">Terms</p>
-            <h2>“付费模式”至少要拆成四层</h2>
+            <div class="section-kicker">Terms</div>
+            <h2>“付费模式”可以拆成四层</h2>
             <div class="table-wrap">
               <table>
                 <thead>
                   <tr>
-                    <th>层次</th>
+                    <th>中文说法</th>
                     <th>行业表达</th>
                     <th>回答的问题</th>
                   </tr>
@@ -101,140 +98,251 @@
                 <tbody>
                   <tr>
                     <td>商业模式</td>
-                    <td>Business / Revenue Model</td>
-                    <td>谁付钱，为什么付，钱从哪里来。</td>
+                    <td>Business Model / Revenue Model</td>
+                    <td>谁付钱，为什么付，钱从哪里来</td>
                   </tr>
                   <tr>
                     <td>定价模型</td>
                     <td>Pricing Model</td>
-                    <td>一次性、订阅、按量、分层还是混合。</td>
+                    <td>按什么逻辑定价：一次性、订阅、按量、分层</td>
                   </tr>
                   <tr>
                     <td>计费模型</td>
-                    <td>Billing Model</td>
-                    <td>月付、年付、预付、后付还是按事件结算。</td>
+                    <td>Billing Model / Charging Model</td>
+                    <td>什么时候收钱：月付、年付、预付、后付、按事件结算</td>
                   </tr>
                   <tr>
                     <td>打包策略</td>
-                    <td>Packaging</td>
-                    <td>免费版、Pro、团队版和企业版分别给什么权益。</td>
+                    <td>Packaging / Entitlement Design</td>
+                    <td>免费版、Pro 版、企业版分别包含哪些权益</td>
                   </tr>
                 </tbody>
               </table>
             </div>
+
+            <div class="definition-grid">
+              <div>
+                <h3>Subscription</h3>
+                <p>用户按周期付费，购买持续访问权。适合持续使用、持续价值、持续成本的产品。</p>
+              </div>
+              <div>
+                <h3>One-time Purchase</h3>
+                <p>用户一次性付费，获得长期使用权。适合边际成本低、维护成本可控的产品。</p>
+              </div>
+              <div>
+                <h3>Usage-based Pricing</h3>
+                <p>用户按实际使用量付费。关键不是按 API 调用收费，而是按用户感知到的价值单位收费。</p>
+              </div>
+            </div>
           </section>
 
           <section id="framework" class="section-block">
-            <p class="eyebrow">Framework</p>
-            <h2>FVC：先判断频率、价值强度和边际成本</h2>
-            <div class="framework-grid">
-              <article>
+            <div class="section-kicker">Framework</div>
+            <h2>FVC 框架：判断工具产品商业化方式</h2>
+            <p>
+              工具产品可以先看三个变量：Frequency 使用频率、Value Intensity 单次价值强度、
+              Variable Cost 边际成本。旅行规划这类产品通常落在最难的区域：低频 + 高边际成本。
+            </p>
+            <div class="fvc-grid">
+              <div>
                 <span>F</span>
-                <h3>Frequency</h3>
-                <p>用户多久使用一次。越高频，越容易支撑订阅。</p>
-              </article>
-              <article>
+                <strong>Frequency</strong>
+                <p>用户多久使用一次。高频更适合订阅，低频更适合事件付费、交易佣金或免费增值。</p>
+              </div>
+              <div>
                 <span>V</span>
-                <h3>Value Intensity</h3>
-                <p>单次任务能节省多少钱、时间或风险。单次价值越高，越适合按任务收费。</p>
-              </article>
-              <article>
+                <strong>Value Intensity</strong>
+                <p>单次使用能节省多少钱、时间或风险。单次价值越高，越能按任务收费。</p>
+              </div>
+              <div>
                 <span>C</span>
-                <h3>Variable Cost</h3>
-                <p>每次使用是否产生成本。高边际成本需要额度、佣金、B 端补贴或混合模式。</p>
-              </article>
+                <strong>Variable Cost</strong>
+                <p>每次使用是否产生 API、模型或服务成本。高边际成本需要额度、按量、佣金或 B 端补贴。</p>
+              </div>
             </div>
 
             <div class="matrix">
-              <div>
+              <div class="matrix-cell">
                 <small>高频 + 低边际成本</small>
                 <strong>笔记、待办、轻量效率工具</strong>
                 <span>Freemium + 订阅</span>
               </div>
-              <div>
+              <div class="matrix-cell">
                 <small>高频 + 高边际成本</small>
-                <strong>AI 写作、语音、API 工具</strong>
+                <strong>语音输入、AI 写作、API 工具</strong>
                 <span>订阅 + 配额 + 超额计费</span>
               </div>
-              <div>
+              <div class="matrix-cell">
                 <small>低频 + 低边际成本</small>
                 <strong>简历模板、一次性计算器</strong>
                 <span>买断、模板售卖、广告</span>
               </div>
-              <div class="highlight">
+              <div class="matrix-cell highlight">
                 <small>低频 + 高边际成本</small>
                 <strong>旅行规划、报税、电子签、AI 地图规划</strong>
-                <span>按任务、预付额度、佣金、B2B</span>
+                <span>按任务、预付额度、交易佣金、B2B、混合模式</span>
               </div>
             </div>
           </section>
 
+          <section id="exping" class="section-block">
+            <div class="section-kicker">PAYG</div>
+            <h2>为什么低频 C 端工具不一定适合纯按量付费</h2>
+            <p>
+              纯 pay-as-you-go 在 B 端或开发者工具里容易成立，因为用户理解资源消耗和账单逻辑。
+              但在大众 C 端旅行规划里，按底层调用计费会带来明显摩擦。
+            </p>
+            <ol class="reason-list">
+              <li><strong>用户不理解底层调用成本。</strong>POI 搜索、路线规划和 AI 规划的每次扣费会显得复杂。</li>
+              <li><strong>按 API 计费会惩罚探索。</strong>旅行规划需要反复搜索、比较、修改，用户越认真越像在烧钱。</li>
+              <li><strong>单次客单价可能太低。</strong>低频产品尤其怕 CAC、支付手续费和接口成本吞掉毛利。</li>
+              <li><strong>免费替代品预期很强。</strong>地图、攻略、预订平台都在免费提供大量旅行信息。</li>
+              <li><strong>账单恐惧。</strong>C 端用户更容易接受“19.9 元这次旅行随便用”，而不是每次操作计费。</li>
+              <li><strong>支付流程增加流失。</strong>低频用户常在旅行前临时下载，第一步付费会损失大量转化。</li>
+            </ol>
+            <div class="callout">
+              <strong>更好的计费单位：</strong>
+              一次旅行、一个地图工作区、一次路线优化、一个离线地图包、一次导出、一个协作人数上限、
+              一个创作者发布地图，或一次酒店/活动/交通预订佣金。
+            </div>
+          </section>
+
           <section id="paths" class="section-block">
-            <p class="eyebrow">Paths</p>
-            <h2>七条更可行的商业化路径</h2>
+            <div class="section-kicker">Paths</div>
+            <h2>低频高成本工具的七条商业化路径</h2>
             <div class="path-list">
+              <section>
+                <h3>1. 按任务收费，而不是按 API 收费</h3>
+                <p>免费版限制地点数和高成本动作；单次旅行包按 30 天或 60 天工作区收费；Pro 年费面向重度旅行者、博主和领队。</p>
+              </section>
+              <section>
+                <h3>2. 订阅 + 配额 + 超额计费</h3>
+                <p>月费或年费包含固定额度，超出后按路线优化、AI 规划、导出次数或 trip credits 购买。</p>
+              </section>
+              <section>
+                <h3>3. Freemium + 高价值动作收费</h3>
+                <p>基础规划免费，把收费点放在离线访问、多人协作、路线优化、导出、高级分享页和 AI 深度规划上。</p>
+              </section>
+              <section>
+                <h3>4. 交易佣金 / Affiliate / Take Rate</h3>
+                <p>旅行规划之后会产生酒店、机票、门票、租车、活动和保险等消费，平台从交易链路而不是规划动作中赚钱。</p>
+              </section>
+              <section>
+                <h3>5. B2B / B2B2C / 白标化</h3>
+                <p>把低频 C 端需求卖给高频组织用户：旅行社、文旅局、活动主办方、酒店集团、创作者和团建服务商。</p>
+              </section>
+              <section>
+                <h3>6. 内容创作者 / 地图模板市场</h3>
+                <p>让工具从一次性规划变成目的地内容、达人路线和付费地图市场，平台通过模板售卖或抽成获利。</p>
+              </section>
+              <section>
+                <h3>7. BYOK / Bring Your Own Key</h3>
+                <p>对技术型用户或机构开放自带 LLM、地图或搜索 API key，适合作为 Pro / Developer 选项。</p>
+              </section>
+            </div>
+          </section>
+
+          <section id="cases" class="section-block">
+            <div class="section-kicker">Cases</div>
+            <h2>可参考案例</h2>
+            <div class="case-grid">
               <article>
-                <h3>按任务收费</h3>
-                <p>把计费单位设计成一次旅行、一个工作区、一次路线优化，而不是底层 API 调用。</p>
+                <h3>Roadtrippers</h3>
+                <p>不把产品只定义为偶尔规划一次旅行，而是聚焦 road trip、RV、露营和长途自驾等高复杂度场景。</p>
+                <span>解法：垂直重度用户 + 会员权益分层</span>
               </article>
               <article>
-                <h3>订阅 + 配额 + 超额</h3>
-                <p>用会员覆盖持续成本，用 trip credits 或导出次数控制高成本动作。</p>
+                <h3>Wanderlog</h3>
+                <p>基础行程、地图、预算、预订管理和协作免费，把付费点放在离线、AI、路线优化和导出上。</p>
+                <span>解法：免费核心 + 高价值动作收费</span>
               </article>
               <article>
-                <h3>Freemium + 高价值动作</h3>
-                <p>基础规划免费，把付费点放到离线访问、多人数协作、AI 深度规划和高级分享页。</p>
+                <h3>TripIt</h3>
+                <p>普通用户免费整理行程，Pro 服务频繁旅行者，同时通过企业差旅管理链路获得 B2B 预算。</p>
+                <span>解法：C 端免费 + 高频用户 Pro + 企业买单</span>
               </article>
               <article>
-                <h3>交易佣金</h3>
-                <p>规划之后自然会产生酒店、机票、门票、活动和保险消费，收入可以来自交易链路。</p>
+                <h3>Rome2Rio / Stay22</h3>
+                <p>把旅行意图导向交通、住宿和票务交易，让商业化发生在预订和合作收入中。</p>
+                <span>解法：不向规划收费，向交易链路收费</span>
               </article>
               <article>
-                <h3>B2B / 白标</h3>
-                <p>把低频 C 端需求卖给高频组织用户，例如旅行社、文旅局、活动主办方和酒店集团。</p>
-              </article>
-              <article>
-                <h3>内容模板市场</h3>
-                <p>让达人路线、目的地地图和付费模板把一次性工具变成可复用内容资产。</p>
-              </article>
-              <article>
-                <h3>BYOK</h3>
-                <p>对技术用户或机构开放自带模型、地图或搜索 API key，作为 Pro / Developer 选项。</p>
+                <h3>DocuSign</h3>
+                <p>用 envelope 抽象一次签署流程，不是无限订阅，而是订阅里带额度，超出后再付费。</p>
+                <span>解法：订阅 + 任务额度 + 超额计费</span>
               </article>
             </div>
           </section>
 
           <section id="decision" class="section-block final-section">
-            <p class="eyebrow">Decision</p>
-            <h2>推荐组合：免费基础版 + 单次任务包 + 长期变现层</h2>
-            <div class="stack-grid">
-              <article>
+            <div class="section-kicker">Decision</div>
+            <h2>推荐组合：三层商业化架构</h2>
+            <div class="stack">
+              <div>
                 <small>第一层</small>
-                <h3>免费基础版</h3>
-                <p>用于获客和建立信任，开放基础创建、地点管理、地图展示、手动排序和基础分享。</p>
-              </article>
-              <article>
+                <strong>免费基础版</strong>
+                <p>用于获客和建立信任。开放基础创建、添加地点、地图展示、手动排序、基础分享和导出预览。</p>
+              </div>
+              <div>
                 <small>第二层</small>
-                <h3>单次旅行包</h3>
-                <p>解决低频用户付费心理，按 30 天工作区、多城市旅行包或家庭协作包收费。</p>
-              </article>
-              <article>
+                <strong>单次旅行包</strong>
+                <p>解决低频用户付费心理。按一个 30 天工作区、多城市旅行包或家庭协作包收费。</p>
+              </div>
+              <div>
                 <small>第三层</small>
-                <h3>Pro / B2B / 佣金</h3>
-                <p>覆盖长期成本，面向博主、领队、旅行社、文旅、活动主办方和交易伙伴。</p>
-              </article>
+                <strong>Pro / B2B / 交易佣金</strong>
+                <p>覆盖长期成本。面向博主、领队、旅行社、文旅、活动主办方和交易伙伴。</p>
+              </div>
+            </div>
+
+            <div class="priority-list">
+              <h3>商业化优先级</h3>
+              <ol>
+                <li>按一次旅行 / 一个工作区收费</li>
+                <li>免费 + 高价值动作收费</li>
+                <li>Pro 订阅 + 配额</li>
+                <li>交易佣金 / Affiliate</li>
+                <li>B2B / 白标 / Widget</li>
+                <li>纯按 API 调用收费</li>
+                <li>纯买断制</li>
+              </ol>
             </div>
           </section>
 
-          <section class="section-block references">
-            <p class="eyebrow">References</p>
-            <h2>来源</h2>
+          <section id="references" class="sources section-block references">
+            <div class="section-kicker">References</div>
+            <h2>来源与延伸阅读</h2>
             <p>
-              本文整理自一段 ChatGPT 分享对话，并做了结构化改写：
-              <a href="https://chatgpt.com/share/6a10bcf6-b47c-8329-897b-7671b35fd94d">工具类产品商业化分析对话</a>。
+              本页整理自
+              <a href="https://chatgpt.com/share/6a10bcf6-b47c-8329-897b-7671b35fd94d">原始 ChatGPT 分享对话</a>。
+              案例和概念参考了对话中提到的公开资料。
             </p>
+            <ul>
+              <li><a href="https://stripe.com/resources/more/pricing-models-explained-types-of-pricing-models-and-when-to-use-them">Stripe: Pricing models explained</a></li>
+              <li><a href="https://openviewpartners.com/usage-based-pricing/">OpenView: Usage-based pricing</a></li>
+              <li><a href="https://developers.google.com/maps/billing-and-pricing/pay-as-you-go">Google Maps Platform: Pay-as-you-go pricing</a></li>
+              <li><a href="https://support.roadtrippers.com/hc/en-us/articles/360000831566-What-features-are-included-with-Roadtrippers-memberships">Roadtrippers membership features</a></li>
+              <li><a href="https://wanderlog.com/blog/2024/11/26/wanderlog-vs-tripit/">Wanderlog vs TripIt</a></li>
+              <li><a href="https://www.tripit.com/web/pro/pricing">TripIt Pro pricing</a></li>
+              <li><a href="https://www.rome2rio.com/get-listed/">Rome2Rio partner listing</a></li>
+              <li><a href="https://www.stay22.com/map">Stay22 Map</a></li>
+              <li><a href="https://ecom.docusign.com/plans-and-pricing/esignature">DocuSign eSignature plans</a></li>
+            </ul>
           </section>
         </article>
+
+        <aside class="page-toc" aria-label="本文目录">
+          <p>本文目录</p>
+          <a href="#problem">问题定义</a>
+          <a href="#terms">概念梳理</a>
+          <a href="#framework">FVC 框架</a>
+          <a href="#exping">为什么不是纯 PAYG</a>
+          <a href="#paths">商业化路径</a>
+          <a href="#cases">案例参考</a>
+          <a href="#decision">最终判断</a>
+          <a href="#references">来源</a>
+        </aside>
+        </div>
       </main>
     </div>
 

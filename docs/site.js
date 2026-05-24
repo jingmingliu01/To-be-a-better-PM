@@ -8,8 +8,7 @@
   }
 
   const saved = window.localStorage.getItem("pmKnowledgeSidebar");
-  const articlePage = shell.dataset.page === "article";
-  const shouldCollapse = saved ? saved === "collapsed" : articlePage;
+  const shouldCollapse = saved === "collapsed";
 
   function setCollapsed(collapsed) {
     body.classList.toggle("nav-collapsed", collapsed);
@@ -21,11 +20,5 @@
 
   toggle.addEventListener("click", function () {
     setCollapsed(!body.classList.contains("nav-collapsed"));
-  });
-
-  document.querySelectorAll(".article-nav a").forEach(function (link) {
-    link.addEventListener("click", function () {
-      window.localStorage.setItem("pmKnowledgeSidebar", "collapsed");
-    });
   });
 })();
