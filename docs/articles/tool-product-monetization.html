@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>工具类产品商业化分析 | To be a better PM</title>
+    <meta
+      name="description"
+      content="从 Frequency、Value Intensity、Variable Cost 出发，梳理低频高成本工具产品的商业化路径、定价模型和案例。"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="knowledge-shell" data-page="article">
+      <aside class="library-sidebar" aria-label="知识库文章导航">
+        <div class="sidebar-head">
+          <a class="brand" href="../index.html" aria-label="返回知识库首页">
+            <span class="brand-mark">PM</span>
+            <span class="brand-text">To be a better PM</span>
+          </a>
+          <button class="sidebar-toggle" type="button" aria-label="折叠或展开文章列表" aria-expanded="true">
+            <span></span>
+          </button>
+        </div>
+
+        <nav class="article-nav">
+          <section>
+            <h2>AI 产品方法论</h2>
+            <a href="./prompt-engineering-scientific-ai-pm.html">
+              <span>Prompt Engineering 科学化探索</span>
+              <small>AI 行为优化 / Eval / BetterMe</small>
+            </a>
+          </section>
+          <section>
+            <h2>商业化与定价</h2>
+            <a class="active" href="./tool-product-monetization.html" aria-current="page">
+              <span>工具类产品商业化分析</span>
+              <small>低频高成本工具 / Pricing</small>
+            </a>
+          </section>
+        </nav>
+      </aside>
+
+      <main class="article-main">
+        <article class="article">
+          <header class="article-hero strategy-hero">
+            <p class="eyebrow">Business Model</p>
+            <h1>工具类产品商业化分析</h1>
+            <p class="article-lead">
+              低频工具产品的核心矛盾，不是用户完全不愿意付费，而是产品价值按事件发生、
+              成本按调用发生，收入却经常被设计成按时间发生。
+            </p>
+            <div class="hero-metrics" aria-label="核心框架">
+              <span>Frequency</span>
+              <span>Value</span>
+              <span>Cost</span>
+              <span>Revenue</span>
+            </div>
+          </header>
+
+          <nav class="article-toc" aria-label="本文目录">
+            <a href="#problem">问题定义</a>
+            <a href="#terms">概念拆分</a>
+            <a href="#framework">FVC 框架</a>
+            <a href="#paths">商业化路径</a>
+            <a href="#decision">推荐判断</a>
+          </nav>
+
+          <section id="problem" class="section-block">
+            <p class="eyebrow">Problem</p>
+            <h2>低频高成本工具难在哪里</h2>
+            <p>
+              语音输入、云存储、办公协作这类高频产品，每天持续产生价值，也持续消耗资源，
+              所以订阅制比较自然。旅行规划、报税、电子签、搬家或装修工具不同：用户只在一个事件窗口里高强度使用，
+              事件结束后需求很快下降。
+            </p>
+            <div class="compare-grid">
+              <div>
+                <h3>用户侧</h3>
+                <p>只想为这次任务付费，不想为不用的月份续费。</p>
+              </div>
+              <div>
+                <h3>公司侧</h3>
+                <p>每次搜索、路线规划、AI 生成、地图加载都可能带来变量成本。</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="terms" class="section-block">
+            <p class="eyebrow">Terms</p>
+            <h2>“付费模式”至少要拆成四层</h2>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>层次</th>
+                    <th>行业表达</th>
+                    <th>回答的问题</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>商业模式</td>
+                    <td>Business / Revenue Model</td>
+                    <td>谁付钱，为什么付，钱从哪里来。</td>
+                  </tr>
+                  <tr>
+                    <td>定价模型</td>
+                    <td>Pricing Model</td>
+                    <td>一次性、订阅、按量、分层还是混合。</td>
+                  </tr>
+                  <tr>
+                    <td>计费模型</td>
+                    <td>Billing Model</td>
+                    <td>月付、年付、预付、后付还是按事件结算。</td>
+                  </tr>
+                  <tr>
+                    <td>打包策略</td>
+                    <td>Packaging</td>
+                    <td>免费版、Pro、团队版和企业版分别给什么权益。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="framework" class="section-block">
+            <p class="eyebrow">Framework</p>
+            <h2>FVC：先判断频率、价值强度和边际成本</h2>
+            <div class="framework-grid">
+              <article>
+                <span>F</span>
+                <h3>Frequency</h3>
+                <p>用户多久使用一次。越高频，越容易支撑订阅。</p>
+              </article>
+              <article>
+                <span>V</span>
+                <h3>Value Intensity</h3>
+                <p>单次任务能节省多少钱、时间或风险。单次价值越高，越适合按任务收费。</p>
+              </article>
+              <article>
+                <span>C</span>
+                <h3>Variable Cost</h3>
+                <p>每次使用是否产生成本。高边际成本需要额度、佣金、B 端补贴或混合模式。</p>
+              </article>
+            </div>
+
+            <div class="matrix">
+              <div>
+                <small>高频 + 低边际成本</small>
+                <strong>笔记、待办、轻量效率工具</strong>
+                <span>Freemium + 订阅</span>
+              </div>
+              <div>
+                <small>高频 + 高边际成本</small>
+                <strong>AI 写作、语音、API 工具</strong>
+                <span>订阅 + 配额 + 超额计费</span>
+              </div>
+              <div>
+                <small>低频 + 低边际成本</small>
+                <strong>简历模板、一次性计算器</strong>
+                <span>买断、模板售卖、广告</span>
+              </div>
+              <div class="highlight">
+                <small>低频 + 高边际成本</small>
+                <strong>旅行规划、报税、电子签、AI 地图规划</strong>
+                <span>按任务、预付额度、佣金、B2B</span>
+              </div>
+            </div>
+          </section>
+
+          <section id="paths" class="section-block">
+            <p class="eyebrow">Paths</p>
+            <h2>七条更可行的商业化路径</h2>
+            <div class="path-list">
+              <article>
+                <h3>按任务收费</h3>
+                <p>把计费单位设计成一次旅行、一个工作区、一次路线优化，而不是底层 API 调用。</p>
+              </article>
+              <article>
+                <h3>订阅 + 配额 + 超额</h3>
+                <p>用会员覆盖持续成本，用 trip credits 或导出次数控制高成本动作。</p>
+              </article>
+              <article>
+                <h3>Freemium + 高价值动作</h3>
+                <p>基础规划免费，把付费点放到离线访问、多人数协作、AI 深度规划和高级分享页。</p>
+              </article>
+              <article>
+                <h3>交易佣金</h3>
+                <p>规划之后自然会产生酒店、机票、门票、活动和保险消费，收入可以来自交易链路。</p>
+              </article>
+              <article>
+                <h3>B2B / 白标</h3>
+                <p>把低频 C 端需求卖给高频组织用户，例如旅行社、文旅局、活动主办方和酒店集团。</p>
+              </article>
+              <article>
+                <h3>内容模板市场</h3>
+                <p>让达人路线、目的地地图和付费模板把一次性工具变成可复用内容资产。</p>
+              </article>
+              <article>
+                <h3>BYOK</h3>
+                <p>对技术用户或机构开放自带模型、地图或搜索 API key，作为 Pro / Developer 选项。</p>
+              </article>
+            </div>
+          </section>
+
+          <section id="decision" class="section-block final-section">
+            <p class="eyebrow">Decision</p>
+            <h2>推荐组合：免费基础版 + 单次任务包 + 长期变现层</h2>
+            <div class="stack-grid">
+              <article>
+                <small>第一层</small>
+                <h3>免费基础版</h3>
+                <p>用于获客和建立信任，开放基础创建、地点管理、地图展示、手动排序和基础分享。</p>
+              </article>
+              <article>
+                <small>第二层</small>
+                <h3>单次旅行包</h3>
+                <p>解决低频用户付费心理，按 30 天工作区、多城市旅行包或家庭协作包收费。</p>
+              </article>
+              <article>
+                <small>第三层</small>
+                <h3>Pro / B2B / 佣金</h3>
+                <p>覆盖长期成本，面向博主、领队、旅行社、文旅、活动主办方和交易伙伴。</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="section-block references">
+            <p class="eyebrow">References</p>
+            <h2>来源</h2>
+            <p>
+              本文整理自一段 ChatGPT 分享对话，并做了结构化改写：
+              <a href="https://chatgpt.com/share/6a10bcf6-b47c-8329-897b-7671b35fd94d">工具类产品商业化分析对话</a>。
+            </p>
+          </section>
+        </article>
+      </main>
+    </div>
+
+    <script src="../site.js"></script>
+  </body>
+</html>

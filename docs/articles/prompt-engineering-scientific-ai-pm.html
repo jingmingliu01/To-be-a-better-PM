@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prompt Engineering 科学化探索 | To be a better PM</title>
+    <meta
+      name="description"
+      content="从 AI PM 视角理解 Prompt Engineering：不是调一句话，而是通过 eval、metric、bad case 和版本管理优化 AI 行为。"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="knowledge-shell" data-page="article">
+      <aside class="library-sidebar" aria-label="知识库文章导航">
+        <div class="sidebar-head">
+          <a class="brand" href="../index.html" aria-label="返回知识库首页">
+            <span class="brand-mark">PM</span>
+            <span class="brand-text">To be a better PM</span>
+          </a>
+          <button class="sidebar-toggle" type="button" aria-label="折叠或展开文章列表" aria-expanded="true">
+            <span></span>
+          </button>
+        </div>
+
+        <nav class="article-nav">
+          <section>
+            <h2>AI 产品方法论</h2>
+            <a class="active" href="./prompt-engineering-scientific-ai-pm.html" aria-current="page">
+              <span>Prompt Engineering 科学化探索</span>
+              <small>AI 行为优化 / Eval / BetterMe</small>
+            </a>
+          </section>
+          <section>
+            <h2>商业化与定价</h2>
+            <a href="./tool-product-monetization.html">
+              <span>工具类产品商业化分析</span>
+              <small>低频高成本工具 / Pricing</small>
+            </a>
+          </section>
+        </nav>
+      </aside>
+
+      <main class="article-main">
+        <article class="article">
+          <header class="article-hero ai-hero">
+            <p class="eyebrow">AI Product Method</p>
+            <h1>Prompt Engineering 科学化探索</h1>
+            <p class="article-lead">
+              Prompt Engineering 不应该被理解成“改一句话”。从 AI PM 视角，它更像一套
+              AI 行为优化系统：定义行为目标、构建评测集、设定 metric、分析 bad case、管理版本，
+              再决定是否引入自动优化或训练。
+            </p>
+            <div class="hero-flow" aria-label="Prompt 优化流程">
+              <span>Policy</span>
+              <span>Eval</span>
+              <span>Metric</span>
+              <span>Bad Case</span>
+              <span>Ship</span>
+            </div>
+          </header>
+
+          <nav class="article-toc" aria-label="本文目录">
+            <a href="#question">原始问题</a>
+            <a href="#three-prompts">三类 Prompt</a>
+            <a href="#science">怎么科学化</a>
+            <a href="#betterme">BetterMe 例子</a>
+            <a href="#optimization">自动优化边界</a>
+            <a href="#interview">面试表达</a>
+          </nav>
+
+          <section id="question" class="section-block">
+            <p class="eyebrow">Question</p>
+            <h2>问题不是“Prompt 是否玄学”，而是你有没有把它工程化</h2>
+            <p>
+              原始讨论从一个直觉开始：训练模型时可以定义 loss，通过反向传播找到参数更新方向；
+              但修改自然语言 prompt 时，模型输出变化不确定，似乎无法知道该改哪个字、朝哪个方向改。
+            </p>
+            <p>
+              更严格的回答是：手工改 prompt 往往只是经验实验；但只要定义任务、样本、指标、
+              对照组、回归测试、错误分类和版本管理，它就可以成为工程化实验。再进一步，如果有假设、
+              控制变量和统计比较，它也可以接近科学实验。
+            </p>
+            <div class="principle-strip">
+              <strong>核心结论</strong>
+              <span>Prompt Engineering 可以被科学化，但不能靠 prompt / output embedding 距离直接解决。</span>
+            </div>
+          </section>
+
+          <section id="three-prompts" class="section-block">
+            <p class="eyebrow">Concepts</p>
+            <h2>三类 Prompt：Text、Program、Parameter</h2>
+            <div class="concept-grid">
+              <article>
+                <span class="number">01</span>
+                <h3>Prompt as Text</h3>
+                <p>
+                  一段自然语言指令，例如“请判断用户访问娱乐网站的理由是否合理”。它容易开始，
+                  但也最容易变成凭感觉调文案。
+                </p>
+              </article>
+              <article>
+                <span class="number">02</span>
+                <h3>Prompt as Program</h3>
+                <p>
+                  把 prompt 当成 AI 决策流程来写，包含输入字段、决策策略、rubric、few-shot、
+                  输出 schema、fallback 和评测约束。
+                </p>
+              </article>
+              <article>
+                <span class="number">03</span>
+                <h3>Prompt as Parameter</h3>
+                <p>
+                  连续 prompt 或 soft prompt，不再是人类可读文本，而是通过训练得到的一组向量。
+                  这更接近 ML 工程，不是多数 AI PM 的起点。
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section id="science" class="section-block">
+            <p class="eyebrow">Method</p>
+            <h2>把 Prompt Engineering 科学化的正确路径</h2>
+            <div class="timeline">
+              <article>
+                <span>1</span>
+                <div>
+                  <h3>定义产品行为</h3>
+                  <p>先说清楚模型在业务里应该做什么，而不是先问 prompt 写得是否优雅。</p>
+                </div>
+              </article>
+              <article>
+                <span>2</span>
+                <div>
+                  <h3>构建 Eval Set</h3>
+                  <p>把典型正例、边界 case、真实 bad case 和隐藏 holdout 分开管理。</p>
+                </div>
+              </article>
+              <article>
+                <span>3</span>
+                <div>
+                  <h3>定义 Metric</h3>
+                  <p>把“好不好”拆成 decision correctness、schema validity、reason quality、tone、latency 和 cost。</p>
+                </div>
+              </article>
+              <article>
+                <span>4</span>
+                <div>
+                  <h3>做版本化实验</h3>
+                  <p>每次改 prompt、schema、rubric 或 examples，都跑回归并记录版本差异。</p>
+                </div>
+              </article>
+              <article>
+                <span>5</span>
+                <div>
+                  <h3>用 Bad Case 驱动改进</h3>
+                  <p>不是只收集失败样本，而是标注错误类型、严重程度、原因和可接受替代输出。</p>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section id="betterme" class="section-block">
+            <p class="eyebrow">BetterMe Case</p>
+            <h2>以 BetterMe AI Checkpoint 为例</h2>
+            <p>
+              BetterMe 的 AI Checkpoint 不是普通聊天机器人。它像一个行为干预决策器：
+              当用户访问 YouTube、Reddit、Instagram、X 等 blocked domain 时，需要根据用户理由、
+              当前任务、历史访问模式和 strictness 策略输出 ALLOW、DELAY、ASK_MORE 或 BLOCK。
+            </p>
+
+            <div class="policy-card">
+              <h3>Prompt as Program 应该定义什么</h3>
+              <div class="policy-grid">
+                <div>
+                  <strong>Input</strong>
+                  <p>blocked domain、user reason、current task、strictness、recent attempts、previous decisions。</p>
+                </div>
+                <div>
+                  <strong>Decision Policy</strong>
+                  <p>判断理由强度、访问意图、重复逃避风险，并按 strictness 调整阈值。</p>
+                </div>
+                <div>
+                  <strong>Output Schema</strong>
+                  <p>结构化输出 decision、reason_strength、risk_level、message、cooldown 或 follow-up question。</p>
+                </div>
+                <div>
+                  <strong>Fallback</strong>
+                  <p>信息不足优先 ASK_MORE；输出格式非法时重试或走保守 fallback。</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Metric</th>
+                    <th>怎么判断</th>
+                    <th>为什么重要</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Decision correctness</td>
+                    <td>是否输出期望决策或可接受决策。</td>
+                    <td>直接决定产品干预是否正确。</td>
+                  </tr>
+                  <tr>
+                    <td>False allow</td>
+                    <td>高风险或逃避场景被放行。</td>
+                    <td>这是专注类产品最严重的失败之一。</td>
+                  </tr>
+                  <tr>
+                    <td>False block</td>
+                    <td>真实工作或学习理由被误杀。</td>
+                    <td>会破坏信任，用户会绕过产品。</td>
+                  </tr>
+                  <tr>
+                    <td>ASK_MORE recall</td>
+                    <td>信息不足时是否追问，而不是猜测。</td>
+                    <td>能减少草率的 ALLOW 或 BLOCK。</td>
+                  </tr>
+                  <tr>
+                    <td>Schema validity</td>
+                    <td>JSON 是否稳定符合前端和存储约束。</td>
+                    <td>AI 产品需要可执行输出，不只是自然语言解释。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="optimization" class="section-block">
+            <p class="eyebrow">Optimization</p>
+            <h2>Embedding loss、Textual Gradient 和 Soft Prompt 的边界</h2>
+            <div class="split-panel">
+              <article>
+                <h3>为什么不能只算 embedding 距离</h3>
+                <p>
+                  Output embedding similarity 不等于任务正确。两个回答语义接近，但一个可能放行，
+                  一个可能延迟；对 BetterMe 来说，这就是完全不同的产品行为。
+                </p>
+              </article>
+              <article>
+                <h3>Textual Gradient 更适合 hard prompt</h3>
+                <p>
+                  它不是数学梯度，而是让 LLM 根据失败样本生成自然语言批评，再把批评转成 prompt、
+                  rubric 或 examples 的修改方向。
+                </p>
+              </article>
+              <article>
+                <h3>Soft Prompt 更接近训练</h3>
+                <p>
+                  Prefix tuning 和 prompt tuning 会学习连续向量，适合有可训练模型、大量标注数据、
+                  ML 工程资源，并愿意牺牲可读性的阶段。
+                </p>
+              </article>
+              <article>
+                <h3>Fine-tuning 不是第一步</h3>
+                <p>
+                  当 prompt、schema、eval 和错误归因都无法解决稳定失败模式，且有足够数据时，
+                  再考虑 fine-tuning、RLHF 或 DPO。
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section id="interview" class="section-block final-section">
+            <p class="eyebrow">Interview</p>
+            <h2>AI PM 面试里可以这样讲</h2>
+            <p>
+              不要说“我会把 prompt 写得更好”。更强的表达是：我会先定义模型在产品场景中的目标行为，
+              再用 eval set 和 metric 判断每次改动是否真的改善了行为。
+            </p>
+            <div class="quote-panel">
+              <p>
+                以 BetterMe 为例，我优化的是 AI Checkpoint 的决策质量，而不是一句提示词。
+                我会定义 decision policy 和 strictness rubric，把 bad case 转成 regression case，
+                每次修改 prompt、schema 或 examples 后观察 false allow、false block、ASK_MORE recall、
+                schema validity 和 reason quality。只有在有稳定评测体系后，我才会引入自动 prompt 优化。
+              </p>
+            </div>
+            <div class="flow-diagram">
+              <span>产品目标</span>
+              <span>Decision Policy</span>
+              <span>Prompt as Program</span>
+              <span>Eval + Metrics</span>
+              <span>Bad Case Review</span>
+              <span>Prompt / Schema / Rubric</span>
+              <span>Offline Eval</span>
+              <span>Holdout</span>
+              <span>Ship</span>
+            </div>
+          </section>
+
+          <section class="section-block references">
+            <p class="eyebrow">References</p>
+            <h2>来源与延伸阅读</h2>
+            <p>
+              本文整理自
+              <a href="https://chatgpt.com/share/6a12693c-2784-832d-93c1-4814ea2aaf07">ChatGPT 分享对话：Prompt Engineering 科学化探索</a>，
+              并补充了原对话涉及的研究脉络。
+            </p>
+            <ul>
+              <li><a href="https://arxiv.org/abs/2305.03495">Automatic Prompt Optimization with “Gradient Descent” and Beam Search</a></li>
+              <li><a href="https://arxiv.org/abs/2406.07496">TextGrad: Automatic “Differentiation” via Text</a></li>
+              <li><a href="https://arxiv.org/abs/2101.00190">Prefix-Tuning: Optimizing Continuous Prompts for Generation</a></li>
+              <li><a href="https://arxiv.org/abs/2104.08691">The Power of Scale for Parameter-Efficient Prompt Tuning</a></li>
+            </ul>
+          </section>
+        </article>
+      </main>
+    </div>
+
+    <script src="../site.js"></script>
+  </body>
+</html>
