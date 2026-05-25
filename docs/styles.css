@@ -538,6 +538,47 @@ p {
   color: var(--ink);
 }
 
+.page-toc a.active,
+.page-toc a[aria-current="true"] {
+  background: #ebe5d7;
+  color: var(--ink);
+  box-shadow: inset 3px 0 0 var(--coral);
+}
+
+.reading-progress {
+  --progress: 0;
+  position: fixed;
+  right: clamp(18px, 3vw, 30px);
+  bottom: clamp(18px, 3vw, 30px);
+  z-index: 30;
+  display: grid;
+  width: 72px;
+  height: 72px;
+  place-items: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, var(--surface) 0 58%, transparent 59%),
+    conic-gradient(var(--teal) calc(var(--progress) * 1%), rgba(217, 213, 201, 0.9) 0);
+  box-shadow: 0 12px 34px rgba(31, 35, 38, 0.16);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 850;
+}
+
+.reading-progress::before {
+  position: absolute;
+  inset: 7px;
+  border: 1px solid rgba(217, 213, 201, 0.92);
+  border-radius: inherit;
+  background: rgba(255, 253, 248, 0.94);
+  content: "";
+}
+
+.reading-progress-value {
+  position: relative;
+  z-index: 1;
+}
+
 .section-block {
   margin-bottom: 18px;
   padding: clamp(24px, 4vw, 40px);
@@ -1117,6 +1158,11 @@ tr:last-child td {
     padding: 7px 4px;
   }
 
+  .page-toc a.active,
+  .page-toc a[aria-current="true"] {
+    box-shadow: inset 0 -3px 0 var(--coral);
+  }
+
   .article-grid,
   .taxonomy-grid,
   .insight-row,
@@ -1160,6 +1206,14 @@ tr:last-child td {
   .article-hero,
   .section-block {
     padding: 22px 18px;
+  }
+
+  .reading-progress {
+    width: 62px;
+    height: 62px;
+    right: 14px;
+    bottom: 14px;
+    font-size: 12px;
   }
 
   .timeline article {
