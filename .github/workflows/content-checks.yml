@@ -1,0 +1,50 @@
+name: Content checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  repository-hygiene:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Reject tracked OS metadata
+        run: |
+          set -euo pipefail
+          if git ls-files | grep -E '(^|/)(\.DS_Store|Thumbs\.db|Desktop\.ini)$'; then
+            echo "Remove tracked OS metadata files before merging."
+            exit 1
+          fi
+
+      - name: Validate knowledge note front matter
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+
+          for file in knowledge/*.md; do
+            if [ "$(basename "$file")" = "README.md" ]; then
+              continue
+            fi
+
+            if [ "$(head -n 1 "$file")" != "---" ]; then
+              echo "$file must start with YAML front matter."
+              exit 1
+            fi
+
+            for field in title date status source tags; do
+              if ! grep -q "^${field}:" "$file"; then
+                echo "$file is missing required front matter field: $field"
+                exit 1
+              fi
+            done
+          done
+
+      - name: Check GitHub Pages entry point
+        run: test -f docs/index.html
